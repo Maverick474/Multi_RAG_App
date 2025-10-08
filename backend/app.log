@@ -2,3 +2,26 @@ INFO:root:session ID: 2e6c7783-7e97-434a-87fd-f00464fb4673, User Query: what is 
 INFO:httpx:HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
 INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
 INFO:root:Session ID: 2e6c7783-7e97-434a-87fd-f00464fb4673, AI response: The capital of Pakistan is Islamabad.
+INFO:root:session ID: 2bc59d64-934f-4f52-8283-101d11b3194a, User Query: who is charlie kirk?, Model: gpt-4o-mini
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:root:Session ID: 2bc59d64-934f-4f52-8283-101d11b3194a, AI response: Charlie Kirk is an American conservative political activist and commentator. He is the founder and president of Turning Point USA (TPUSA), a nonprofit organization aimed at promoting conservative values among college students. Born on October 14, 1993, he gained prominence through his work in educational outreach and political activism, particularly in promoting free-market principles and limited government. Kirk is also known for his appearances on various media platforms, including television and podcasts, where he discusses political issues and conservative perspectives.
+INFO:root:session ID: 2bc59d64-934f-4f52-8283-101d11b3194a, User Query: why was charlie kirk killed?, Model: gpt-4o-mini
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:root:Session ID: 2bc59d64-934f-4f52-8283-101d11b3194a, AI response: As of my last knowledge update in October 2023, Charlie Kirk has not been killed. It's important to verify information from reliable sources, as misinformation can spread easily. If you have come across recent news or claims regarding him, I recommend checking reputable news outlets for the most accurate and up-to-date information.
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+INFO:root:session ID: 32154935-0155-4e16-835d-98455db7347e, User Query: who killed charlie kirk?, Model: gpt-4o-mini
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:root:Session ID: 32154935-0155-4e16-835d-98455db7347e, AI response: Charlie Kirk was killed by 22-year-old Tyler James Robinson, who has been charged with aggravated murder and other offenses related to the assassination.
+INFO:root:session ID: 32154935-0155-4e16-835d-98455db7347e, User Query: why was he killed?, Model: gpt-4o-mini
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:root:Session ID: 32154935-0155-4e16-835d-98455db7347e, AI response: Charlie Kirk was killed by Tyler James Robinson due to ideological opposition. Prosecutors and court evidence indicated that Robinson viewed Kirk as spreading hatred and embodying evil. Robinson had planned the attack for over a week and expressed that he had "enough of [Kirk’s] hatred." His motivations were rooted in his anger toward Kirk's political views, especially as Robinson had shifted his own views to become more supportive of LGBTQ+ and trans rights.
+INFO:root:session ID: a4d396b8-5815-451a-aaf7-f6280eefd1a5, User Query: How was Charlie Kirk killed?, Model: gpt-4o-mini
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:root:Session ID: a4d396b8-5815-451a-aaf7-f6280eefd1a5, AI response: Charlie Kirk was assassinated by being shot in the neck during a speaking event at Utah Valley University in Orem, Utah. The assailant, 22-year-old Tyler James Robinson, was arrested and later admitted responsibility for the attack, which authorities labeled as politically motivated.

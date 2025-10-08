@@ -79,14 +79,14 @@ def delete_document(file_id: int) -> bool:
 
 def main():
     st.set_page_config(
-        page_title="RAG Chat Application",
-        page_icon="🤖",
+        page_title="Nova Chat Application",
+        page_icon="ai.png",
         layout="wide"
     )
     
     init_session_state()
     
-    st.title("🤖 Nuera Chat Application")
+    st.title("Nova Chat Application")
     st.markdown("Chat with your documents using AI-powered retrieval")
     
     # Sidebar for document management

@@ -39,26 +39,54 @@ def upload_and_index_document(file: UploadFile = File(...)):
     file_extension = os.path.splitext(file.filename)[1].lower()
 
     if file_extension not in allowed_extensions:
-        raise HTTPException(status_code = 400, default = f"Unsupported file type, Allowed files are Allowed types are: {', '.join(allowed_extensions)}")
+        raise HTTPException(
+            status_code=400, 
+            detail=f"Unsupported file type. Allowed types are: {', '.join(allowed_extensions)}"
+        )
+    
     temp_file_path = f"temp_{file.filename}"
+    file_id = None
 
     try:
-        # save the uploaded file to a temporary file
+        # Save the uploaded file to a temporary file
         with open(temp_file_path, "wb") as buffer:
             shutil.copyfileobj(file.file, buffer)
+        
+        # Verify file was created and has content
+        if not os.path.exists(temp_file_path) or os.path.getsize(temp_file_path) == 0:
+            raise HTTPException(status_code=400, detail="Uploaded file is empty or failed to save")
 
+        # Insert document record
         file_id = insert_document_record(file.filename)
+        print(f"Inserted document record with ID: {file_id}")
+
+        # Index to Chroma
         success = index_document_to_chroma(temp_file_path, file_id)
 
         if success:
-            return {"message": f"file {file.filename} has been successfully uploaded"}
+            return {"message": f"File {file.filename} has been successfully uploaded and indexed"}
         else:
-            delete_document_record(file_id)
-            raise HTTPException(status_code = 400, detail="failed to index")
+            # If indexing failed, delete the database record
+            if file_id:
+                delete_document_record(file_id)
+            raise HTTPException(status_code=400, detail="Failed to index document")
         
+    except HTTPException:
+        # Re-raise HTTP exceptions
+        raise
+    except Exception as e:
+        print(f"Unexpected error during upload: {e}")
+        # Clean up database record if created
+        if file_id:
+            delete_document_record(file_id)
+        raise HTTPException(status_code=500, detail=f"Internal server error: {str(e)}")
     finally:
+        # Clean up temporary file
         if os.path.exists(temp_file_path):
-            os.remove(temp_file_path)
+            try:
+                os.remove(temp_file_path)
+            except Exception as e:
+                print(f"Error removing temp file: {e}")
     
 @app.get('/list_documents', response_model = list[DocumentInfo])
 
