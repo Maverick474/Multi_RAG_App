@@ -1,0 +1,4 @@
+INFO:root:session ID: 2e6c7783-7e97-434a-87fd-f00464fb4673, User Query: what is the capital of pakistan?, Model: gpt-4o-mini
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:root:Session ID: 2e6c7783-7e97-434a-87fd-f00464fb4673, AI response: The capital of Pakistan is Islamabad.

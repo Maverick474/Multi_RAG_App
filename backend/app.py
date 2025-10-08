@@ -18,7 +18,7 @@ app = FastAPI()
 
 @app.post("/chat", response_model = QueryResponse)
 def chat(query_input: QueryInput):
-    session_id = query_input.sessionid or str(uuid.uuid4())
+    session_id = query_input.session_id or str(uuid.uuid4())  # Fixed: session_id
     logging.info(f"session ID: {session_id}, User Query: {query_input.question}, Model: {query_input.model.value}")
 
     chat_history = get_chat_history(session_id)
@@ -29,7 +29,7 @@ def chat(query_input: QueryInput):
     })['answer']
 
     insert_application_logs(session_id, query_input.question, answer, query_input.model.value)
-    logging.INFO(f"Session ID: {session_id}, AI response: {answer}")
+    logging.info(f"Session ID: {session_id}, AI response: {answer}")  # Fixed: logging.info (lowercase)
     return QueryResponse(answer = answer, session_id = session_id, model = query_input.model)
 
 

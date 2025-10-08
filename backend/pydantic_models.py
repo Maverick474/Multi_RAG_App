@@ -1,6 +1,7 @@
 from pydantic import BaseModel, Field
 from enum import Enum
 from datetime import datetime
+from typing import Optional
 
 
 class ModelName(str, Enum):
@@ -9,8 +10,8 @@ class ModelName(str, Enum):
 
 class QueryInput(BaseModel):
     question: str
-    session_id: str = Field(default = None)
-    model: ModelName = Field(default = ModelName.GPT4_O)
+    session_id: Optional[str] = Field(default=None)  # Fixed: made Optional and consistent naming
+    model: ModelName = Field(default=ModelName.GPT4_O_MINI)
 
 class QueryResponse(BaseModel):
     answer: str
@@ -20,16 +21,7 @@ class QueryResponse(BaseModel):
 class DocumentInfo(BaseModel):
     id: int
     filename: str
-    upload_timestamp: datetime #when the document was uploaded and indexed
+    uploaded_timestamp: datetime  # Fixed: match your database column name
 
 class DeleteFileRequest(BaseModel):
     file_id: int
-
-# adding extensionability
-
-class DocumentInfo(BaseModel):
-    id: int
-    filename: str
-    upload_timestamp: datetime
-    file_size: int
-    content_type: str
